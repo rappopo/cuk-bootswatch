@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    {% if coreCfg('bootswatch').common.useCdn %}
+    {% if viewCfg('bootswatch').common.useCdn %}
       {% if site.theme %}
       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.1.1/{{ site.theme }}/bootstrap.min.css">
       {% else %}
@@ -11,9 +11,9 @@
       {% endif %}
     {% else %}
       {% if site.theme %}
-      <link rel="stylesheet" href="{{ coreCfg('static').common.mountResource }}/bootswatch/{{ site.theme }}/bootstrap.min.css">
+      <link rel="stylesheet" href="{{ viewCfg('static').common.mountResource }}/bootswatch/{{ site.theme }}/bootstrap.min.css">
       {% else %}
-      <link rel="stylesheet" href="{{ coreCfg('static').common.mountResource }}/bootswatch/bootstrap/css/bootstrap.min.css">
+      <link rel="stylesheet" href="{{ viewCfg('static').common.mountResource }}/bootswatch/bootstrap/css/bootstrap.min.css">
       {% endif %}
     {% endif %}
     {% block style %}
@@ -22,27 +22,27 @@
   </head>
   <body>
     {% if not noNavbar %}
-    {% if coreCfg('bootswatch').common.navbar or not noNavbar %}
-    <div class="navbar navbar-expand-lg {{ coreCfg('bootswatch').common.navbar }}">
-      <div class="{% if coreCfg('bootswatch').common.fluidContainer %}container-fluid{% else %}container{% endif %}">
+    {% if viewCfg('bootswatch').common.navbar or not noNavbar %}
+    <div class="navbar navbar-expand-lg {{ viewCfg('bootswatch').common.navbar }}">
+      <div class="{% if viewCfg('bootswatch').common.fluidContainer %}container-fluid{% else %}container{% endif %}">
         {% block navbar %}
         {% endblock %}
       </div>
     </div>
     {% endif %}
     {% endif %}
-    <div class="{% if coreCfg('bootswatch').common.fluidContainer %}container-fluid{% else %}container{% endif %}" id="main-container">
+    <div class="{% if viewCfg('bootswatch').common.fluidContainer %}container-fluid{% else %}container{% endif %}" id="main-container">
       {% block content %}
       {% endblock %}
     </div>
-    {% if coreCfg('bootswatch').common.useCdn %}
+    {% if viewCfg('bootswatch').common.useCdn %}
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
     {% else %}
-    <script src="{{ coreCfg('static').common.mountResource }}/bootswatch/jquery/jquery.slim.min.js"></script>
-    <script src="{{ coreCfg('static').common.mountResource }}/bootswatch/popper.js/umd/popper.min.js"></script>
-    <script src="{{ coreCfg('static').common.mountResource }}/bootswatch/bootstrap/js/bootstrap.min.js"></script>
+    <script src="{{ viewCfg('static').common.mountResource }}/bootswatch/jquery/jquery.slim.min.js"></script>
+    <script src="{{ viewCfg('static').common.mountResource }}/bootswatch/popper.js/umd/popper.min.js"></script>
+    <script src="{{ viewCfg('static').common.mountResource }}/bootswatch/bootstrap/js/bootstrap.min.js"></script>
     {% endif %}
     {% block script %}
     {% endblock %}
