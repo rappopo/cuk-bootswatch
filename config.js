@@ -12,7 +12,7 @@ module.exports = function(cuk) {
   return new Promise((resolve, reject) => {
     let dir = path.join(cuk.pkg.bootswatch.dir, 'node_modules', 'bootswatch', 'dist')
     if (!fs.existsSync(dir))
-      dir = path.join(cuk.dir.root, 'node_modules', 'bootswatch', 'dist')
+      dir = path.join(cuk.dir.app, 'node_modules', 'bootswatch', 'dist')
     let dirs = _.map(globby.sync(dir + '/*', {
       onlyDirectories: true
     }), d => {
