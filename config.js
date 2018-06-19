@@ -4,6 +4,7 @@ module.exports = function(cuk) {
   const { _, globby, helper, path, fs } = cuk.lib
 
   let common = {
+    skinName: 'Bootswatch',
     fluidContainer: false,
     useCdn: true,
     navbar: "fixed-top navbar-dark bg-primary"
