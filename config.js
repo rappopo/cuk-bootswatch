@@ -1,7 +1,7 @@
 'use strict'
 
 module.exports = function(cuk) {
-  const { _, globby, helper, path, fs } = cuk.lib
+  const { _, globby, helper, path, fs } = cuk.pkg.core.lib
 
   let common = {
     skinName: 'Bootswatch',
