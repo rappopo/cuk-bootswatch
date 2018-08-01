@@ -1,14 +1,7 @@
 'use strict'
 
 module.exports = function(cuk) {
-  const { _, globby, helper, path, fs } = cuk.pkg.core.lib
-
-  let common = {
-    skinName: 'Bootswatch',
-    fluidContainer: false,
-    useCdn: true,
-    navbar: "fixed-top navbar-dark bg-primary"
-  }
+  const { _, globby, helper, path, fs, config } = cuk.pkg.core.lib
 
   return new Promise((resolve, reject) => {
     let dir = path.join(cuk.pkg.bootswatch.dir, 'node_modules', 'bootswatch', 'dist')
@@ -17,13 +10,20 @@ module.exports = function(cuk) {
     let dirs = _.map(globby.sync(dir + '/*', {
       onlyDirectories: true
     }), d => {
-      return path.basename(d)
+      return {
+        id: 'bootswatch:' + path.basename(d),
+        name: 'Bootswatch - ' + _.upperFirst(path.basename(d))
+      }
     })
 
-    common.defaultTheme = 'minty'
-    common.themes = dirs
+
+
     resolve({
-      common: common
+      cuks: {
+        bootstrap: {
+          themes: dirs
+        }
+      }
     })
 
   })
